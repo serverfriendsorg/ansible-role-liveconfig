@@ -1,0 +1,11 @@
+---
+- name: Install liveconfig repository key
+  rpm_key:
+    key: 'https://www.liveconfig.com/liveconfig.key'
+    state: present
+
+- name: Install liveconfig repository
+  zypper_repository:
+    name: 'liveconfig-repository'
+    repo: 'http://repo.liveconfig.com/opensuse/'
+    state: present

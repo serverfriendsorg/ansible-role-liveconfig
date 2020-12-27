@@ -1,0 +1,10 @@
+---
+- name: Verify
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Check if webserver is reachable
+      uri:
+        url: http://localhost:8443
+        status_code: 200

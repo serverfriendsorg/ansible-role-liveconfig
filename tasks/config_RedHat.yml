@@ -1,0 +1,14 @@
+---
+- name: Install yum repository key
+  rpm_key:
+    key: 'https://www.liveconfig.com/liveconfig.key'
+    state: present
+
+- name: Install yum repository
+  yum_repository:
+    name: 'liveconfig'
+    description: 'Liveconfig repository'
+    file: 'liveconfig'
+    baseurl: 'http://repo.liveconfig.com/centos/$releasever/'
+    enabled: yes
+    state: present

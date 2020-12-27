@@ -1,0 +1,5 @@
+---
+- name: Install liveconfig-meta
+  package:
+    name: liveconfig-meta
+    state: present

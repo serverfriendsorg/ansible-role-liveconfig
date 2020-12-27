@@ -1,0 +1,8 @@
+---
+liveconfig_lcsam_install: no
+liveconfig_meta_install: no
+
+liveconfig_php_install: no
+liveconfig_php_packages:
+  - php7.4-opt
+  - php8.0-opt

@@ -1,0 +1,12 @@
+---
+- name: Install php repository
+  apt_repository:
+    repo: 'deb http://repo.liveconfig.com/debian/ {{ ansible_distribution_release }} php'
+    file: 'liveconfig_php'
+    state: present
+
+- name: Install php packages
+  apt:
+    name: '{{ liveconfig_php_packages }}'
+    state: present
+  notify: restart liveconfig

@@ -1,0 +1,33 @@
+---
+- name: Include OS-specific pre tasks
+  include_tasks: 'config_{{ ansible_os_family }}.yml'
+
+- name: Install liveconfig
+  package:
+    name: liveconfig
+    state: present
+
+- name: Install liveconfig-lcsam
+  package:
+    name: lcsam
+    state: present
+  when: liveconfig_lcsam_install | bool
+
+- name: Install liveconfig-meta
+  include_tasks: lc_meta.yml
+  when: liveconfig_meta_install | bool
+
+- name: Install php packages from liveconfig repository
+  include_tasks: install_php.yml
+  when: liveconfig_php_install | bool and ansible_facts['os_family'] == 'Debian' or ansible_facts['os_family'] == 'Ubuntu'
+
+- name: Start and enable liveconfig
+  service:
+    name: liveconfig
+    enabled: yes
+    state: started
+
+- name: Ensure liveconfig is running
+  wait_for:
+    port: 8443
+    delay: 10
