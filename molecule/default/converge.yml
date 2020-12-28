@@ -14,4 +14,4 @@
         state: present
 
   roles:
-    - role: ansible-role-liveconfig
+    - role: serverfriendsorg.liveconfig

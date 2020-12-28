@@ -7,4 +7,4 @@ rules:
     allowed-values:
       - 'yes'
       - 'no'
-    check-keys: true
+    check-keys: yes

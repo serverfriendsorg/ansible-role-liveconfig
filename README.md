@@ -27,7 +27,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
     - hosts: liveconfig
       roles:
-        - ansible-role-liveconfig
+        - serverfriendsorg.liveconfig
 
 ## License
 

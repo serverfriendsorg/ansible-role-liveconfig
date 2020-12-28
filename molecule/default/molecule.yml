@@ -5,8 +5,8 @@ driver:
   name: docker
 lint: |
   set -e
-  yamllint  -d ../../.yamllint .
-  ansible-lint -c ../../.ansible-lint
+  yamllint  -d .yamllint .
+  ansible-lint -c .ansible-lint
 platforms:
   - name: debian-10-systemd
     image: "geerlingguy/docker-debian10-ansible:latest"
